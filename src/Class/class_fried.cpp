@@ -16,6 +16,7 @@ class Person {
         this->b += target.b;
         return *this;
     };
+
     /* friend 사용법 */
 
     // 전역 함수에서 객체 클래스에 선언하여 접근 가능 하도록 함

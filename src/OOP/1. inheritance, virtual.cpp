@@ -73,6 +73,13 @@ class Student : public Person {
     }
 };
 
+//  class final키워드= 상속 불가하게 만들기
+class FinTest final {
+   public:
+    // 함수 final 키워드 = 오버라이딩 안되게 막기
+    virtual void func() final {}
+};
+
 /* super 클래스에 생성자를 작성한 경우 자식은 무조건 부모 생성자 호출 해야함 */
 Student::Student(string name, int age, int std_id, char* heap_char)
     : Person(name, age) /* 이렇게 부ㄹ모 생성자 호출 */ {
@@ -135,9 +142,9 @@ int main(int argc, char const* argv[]) {
     cout << "---힙 문제---" << endl;
 
     // 가장 문제가 이렇게 힙으로 초기화 한 경우가 문제임
-    // delete를 통해 소멸자를 호출할때  `Person*` 초기화를 했기 때문에 Student에 소멸자가 아닌, Person 으로 소멸자가 호출됨
-    // Student에서 char_ptr을 힙으로 초기화 하므로 반드시 헤제가 필요 따라서 소멸자에 명시를 해두었으나, Person소멸자가 호출되어 메모리 누수가 나버림
-    // 그럼 이때 Person에 소멸자를 virtual로 선언하여 문제를 해결하는 것
+    // delete를 통해 소멸자를 호출할때  `Person*` 초기화를 했기 때문에 Student에 소멸자가 아닌, Person 으로 소멸자가
+    // 호출됨 Student에서 char_ptr을 힙으로 초기화 하므로 반드시 헤제가 필요 따라서 소멸자에 명시를 해두었으나,
+    // Person소멸자가 호출되어 메모리 누수가 나버림 그럼 이때 Person에 소멸자를 virtual로 선언하여 문제를 해결하는 것
     char* char_ptr = new char[20]{"안녕하세요"};
     Person* PointerPerson = new Student("나는 포인터", 10, 1, char_ptr);
     delete PointerPerson;
