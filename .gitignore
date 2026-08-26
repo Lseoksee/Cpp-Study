@@ -1,3 +1,4 @@
 bin/*
 !bin/실행파일
 .vscode/settings.json
+*.txt
