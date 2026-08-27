@@ -8,7 +8,7 @@ using namespace std;
 
 /* 템플릿 메소드를 사용하면 타입에 구해받지 않고 서로다른 타입에서 동작하는 알고리즘을 만들 수있음  */
 // <typename T>도 가능
-template <class T>  // 한줄에 쓰면 template <typename T> void swap(T* a, T* b)
+template <typename T>  // 한줄에 쓰면 template <typename T> void swap(T* a, T* b)
 void MySwap(T* a, T* b) {
     T temp = *a;
     *a = *b;

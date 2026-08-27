@@ -3,7 +3,7 @@
 using namespace std;
 
 // 템플릿 클래스
-template <class T = int /* 기본타입 명시 */>
+template <typename T = int /* 기본타입 명시 */>
 class Object {
    private:
    public:
@@ -12,7 +12,7 @@ class Object {
         cout << b << endl;
     }
     /* 중첩 클래스 */
-    template <class B>
+    template <typename B>
     class ObjectSub {
        private:
        public:
@@ -31,7 +31,7 @@ class Object<double> {
    public:
 };
 
-template<class T, class B> class OBJ  {
+template<typename T, typename B> class OBJ  {
    private:
    public:
 };
@@ -41,6 +41,11 @@ template <class T> class OBJ<T, double> {
    private:
    public:
 };
+
+/* 가변인자 템플릿 */
+template <typename... Args>
+void typeTest(Args... name) {
+}
 
 int main(int argc, char const *argv[]) {
     Object<string> ob;
